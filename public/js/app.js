@@ -28139,7 +28139,9 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "bg-gray-100" }, [_vm._v("\n    test\n")])
+  return _c("div", { staticClass: "bg-gray-100 bg-star-color" }, [
+    _vm._v("\n    test\n"),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

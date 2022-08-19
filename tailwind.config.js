@@ -7,6 +7,14 @@ module.exports = {
       './resources/**/*.vue',
   ],
   theme: {
+    colors: {
+        'border-dark-grey': '#222222',
+        'border-light-gray': '#CCCCCC',
+        'font-color-222': '#222222',
+        'font-color-888': '#888888',
+        'star-color': '#C90000',
+        'header-bg-color': '#F6F6F7'
+    },
     extend: {},
   },
   plugins: [],
