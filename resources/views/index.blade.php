@@ -8,7 +8,7 @@
     </head>
     <body class="antialiased">
         <div id="root">
-            <example-component/>
+            <main-component/>
         </div>
     </body>
     <script src="{{ asset('js/app.js') }}" defer></script>

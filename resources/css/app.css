@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.body {
+    font-family: "Inv Maison Neue","Maison Neue",-apple-system,BlinkMacSystemFont,"Open Sans",open-sans,sans-serif;
+}
+
+@layer components {
+    .custom-navbar {
+        @apply flex flex-row-reverse flex-wrap
+        bg-header-bg-color my-4 md:mx-[8rem] lg:mx-[16rem] p-2 pr-[2.5rem] md:pr-[5rem] lg:pr-[10rem] font-medium
+        text-[0.8rem]
+    }
+    .custom-navbar-cart-div {
+        @apply flex flex-row text-sm items-center cursor-pointer
+    }
+
+    .custom-navbar-cart-div > span {
+        @apply pl-1
+    }
+
+    .custom-navbar-cart-main-button {
+        @apply hidden md:block lg:block
+    }
+
+    .custom-navbar-cart-sub-button {
+        @apply block md:hidden lg:hidden w-6 pr-1
+    }
+
+    .custom-navbar-cart-bag {
+        @apply tracking-[0.3rem]
+    }
+
+    .custom-navbar-cart-div-bag__unclicked {
+        @apply  text-font-color-888
+    }
+
+}
