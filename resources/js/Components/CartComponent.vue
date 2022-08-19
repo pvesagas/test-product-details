@@ -1,18 +1,12 @@
 
 <script>
 export default {
+    name: "CartComponent",
     props: {
-        toggleState: {
-            type: Boolean
-        }
+        toggleState: Boolean
     },
-    name: "CartComponent"
 }
 </script>
-
-<style scoped>
-
-</style>
 
 <template>
     <div class="cart-dropdown" v-if="toggleState === true">

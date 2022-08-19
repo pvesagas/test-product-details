@@ -1,3 +1,30 @@
+<script>
+import CartComponent from "./CartComponent";
+export default {
+    name: "NavbarComponent",
+    components: {
+        CartComponent
+    },
+    data() {
+        return {
+            showDropdown: false
+        }
+    },
+    methods: {
+        toggleDropdown(bState) {
+            this.showDropdown = !bState;
+            if (this.showDropdown === true) {
+                document.querySelector('.custom-navbar-cart-div').classList.remove('custom-navbar-cart-div__unclicked');
+                document.querySelector('.custom-navbar-cart-div').classList.add('custom-navbar-cart-div__clicked');
+                return;
+            }
+
+            document.querySelector('.custom-navbar-cart-div').classList.remove('custom-navbar-cart-div__clicked');
+            document.querySelector('.custom-navbar-cart-div').classList.add('custom-navbar-cart-div__unclicked');
+        },
+    }
+}
+</script>
 <template>
     <nav class="custom-navbar">
         <div class="custom-navbar-cart-div custom-navbar-cart-div-bag__unclicked" @click="toggleDropdown(showDropdown)">
@@ -17,34 +44,3 @@
         <CartComponent :toggle-state="showDropdown" />
     </nav>
 </template>
-
-<script>
-import CartComponent from "./CartComponent";
-export default {
-    name: "NavbarComponent",
-    components: {
-        CartComponent
-    },
-    data() {
-        return {
-            showDropdown: false
-        }
-    },
-    methods: {
-        toggleDropdown(bState) {
-            this.showDropdown = !bState;
-            if (this.showDropdown === true) {
-                document.querySelector('.custom-navbar-cart-div').classList.remove('custom-navbar-cart-div__unclicked');
-                document.querySelector('.custom-navbar-cart-div').classList.add('custom-navbar-cart-div__clicked');
-                return
-            }
-            document.querySelector('.custom-navbar-cart-div').classList.remove('custom-navbar-cart-div__clicked');
-            document.querySelector('.custom-navbar-cart-div').classList.add('custom-navbar-cart-div__unclicked');
-        },
-    }
-}
-</script>
-
-<style scoped>
-
-</style>

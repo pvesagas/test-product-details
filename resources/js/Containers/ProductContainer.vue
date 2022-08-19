@@ -40,11 +40,6 @@ export default {
 }
 </script>
 
-<style scoped>
-
-</style>
-
-
 <template>
     <div class="product-container">
         <ProductImageComponent :img="img"/>
