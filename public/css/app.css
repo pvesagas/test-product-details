@@ -538,10 +538,18 @@ video {
   }
 }
 .custom-navbar-cart-div {
+  z-index: 3;
   display: flex;
   cursor: pointer;
   flex-direction: row;
   align-items: center;
+  border-width: 1px;
+  border-bottom-width: 1px;
+  border-color: rgb(204 204 204 / var(--tw-border-opacity));
+  --tw-border-opacity: 1;
+  border-bottom-color: rgb(255 255 255 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
@@ -623,6 +631,7 @@ video {
   }
 }
 .product-details {
+  z-index: 0;
   display: flex;
   flex-direction: column;
 }
@@ -722,7 +731,7 @@ video {
   margin-left: 0px;
   height: 3.5rem;
   min-width: 3.5rem;
-  border-width: 2px;
+  border-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(204 204 204 / var(--tw-border-opacity));
   padding: 0.75rem;
@@ -763,6 +772,56 @@ video {
   border-color: rgb(34 34 34 / var(--tw-border-opacity));
   --tw-text-opacity: 1;
   color: rgb(34 34 34 / var(--tw-text-opacity));
+}
+.cart-dropdown {
+  position: absolute;
+  top: 2.719rem;
+  z-index: 2;
+  width: 17rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(204 204 204 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.cart-dropdown-list {
+  margin-top: 0.5rem;
+  display: flex;
+  height: 25rem;
+  flex-direction: column;
+  overflow-x: auto;
+}
+.cart-dropdown-item {
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem;
+}
+.cart-dropdown-img {
+  width: 40%;
+}
+.cart-dropdown-img > img {
+  height: 120px;
+  width: 75px;
+}
+.cart-dropdown-item-details__name {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+}
+.cart-dropdown-item-details__count {
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.cart-dropdown-item-details__size {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 .fixed {
   position: fixed;
@@ -828,6 +887,9 @@ video {
 .h-16 {
   height: 4rem;
 }
+.h-\[300px\] {
+  height: 300px;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -866,6 +928,10 @@ video {
 }
 .border-r {
   border-right-width: 1px;
+}
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 .p-6 {
   padding: 1.5rem;

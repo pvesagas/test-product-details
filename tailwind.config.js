@@ -13,7 +13,8 @@ module.exports = {
         'font-color-222': '#222222',
         'font-color-888': '#888888',
         'star-color': '#C90000',
-        'header-bg-color': '#F6F6F7'
+        'header-bg-color': '#F6F6F7',
+        'white': '#FFFFFF'
     },
     extend: {},
   },

@@ -13,12 +13,18 @@
                 (1)
             </span>
         </div>
+
+        <CartComponent />
     </nav>
 </template>
 
 <script>
+import CartComponent from "./CartComponent";
 export default {
     name: "NavbarComponent",
+    components: {
+        CartComponent
+    },
     data() {
         return {
             showDropdown: false

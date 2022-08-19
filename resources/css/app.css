@@ -13,7 +13,7 @@
         text-[0.8rem]
     }
     .custom-navbar-cart-div {
-        @apply flex flex-row text-sm items-center cursor-pointer
+        @apply flex flex-row text-sm items-center cursor-pointer z-[3] border border-b  border-b-white border-border-light-gray bg-white
     }
 
     .custom-navbar-cart-div > span {
@@ -45,7 +45,7 @@
     }
 
     .product-details {
-        @apply flex flex-col md:w-[50%] lg:w-[50%]
+        @apply flex flex-col md:w-[50%] lg:w-[50%] z-0
     }
 
     .product-details__name {
@@ -82,7 +82,7 @@
     }
 
     .product-details-sizes-buttons__select {
-        @apply p-3 mx-2 ml-0 min-w-[3.5rem] h-[3.5rem] border-2 border-border-light-gray text-font-color-888 text-base
+        @apply p-3 mx-2 ml-0 min-w-[3.5rem] h-[3.5rem] border border-border-light-gray text-font-color-888 text-base
     }
 
     .product-details-add-to-cart-div {
@@ -97,6 +97,39 @@
 
     .size-selected  {
         @apply border-border-dark-gray text-border-dark-gray
+    }
+
+    .cart-dropdown {
+        @apply z-[2] absolute w-[17rem] top-[2.719rem] border border-border-light-gray px-3 py-2  bg-white
+    }
+
+    .cart-dropdown-list {
+        @apply flex flex-col h-[25rem] overflow-x-auto mt-2
+    }
+
+    .cart-dropdown-item {
+        @apply flex flex-row p-2
+    }
+    .cart-dropdown-img  {
+        @apply w-[40%]
+    }
+    .cart-dropdown-img > img {
+        @apply h-[120px] w-[75px]
+    }
+    .cart-dropdown-item--details {
+        @apply p-2 flex flex-col justify-start w-[75%]
+    }
+    .cart-dropdown-item-details__name {
+        @apply text-base font-medium mb-2
+    }
+    .cart-dropdown-item-details__count {
+        @apply text-base mt-4
+    }
+    .cart-dropdown-item-details__size {
+        @apply text-sm mt-4
+    }
+    .cart-dropdown-item__details > span {
+        @apply p-1
     }
 
 }
