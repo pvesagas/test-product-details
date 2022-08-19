@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.body {
+    font-family: "Inv Maison Neue","Maison Neue",-apple-system,BlinkMacSystemFont,"Open Sans",open-sans,sans-serif;
+}
+
+@layer components {
+    .custom-navbar {
+        @apply flex flex-row-reverse flex-wrap
+        bg-header-bg-color my-4 md:mx-[4rem] lg:mx-[16rem] p-2 pr-[2.5rem] md:pr-[3rem] lg:pr-[10rem] font-medium
+        text-[0.8rem] h-[2.4rem]
+    }
+    .custom-navbar-cart-div {
+        @apply flex flex-row text-sm items-center cursor-pointer z-[3] text-font-color-888
+    }
+
+    .custom-navbar-cart-div > span {
+        @apply pl-1
+    }
+
+    .custom-navbar-cart-main-button {
+        @apply hidden md:block lg:block
+    }
+
+    .custom-navbar-cart-sub-button {
+        @apply block md:hidden lg:hidden w-6 pr-1
+    }
+
+    .custom-navbar-cart-bag {
+        @apply tracking-[0.3rem]
+    }
+
+    .custom-navbar-cart-div__unclicked {
+        @apply text-font-color-888
+    }
+    .custom-navbar-cart-div__clicked {
+        @apply border border-b border-b-white border-border-light-gray bg-white text-font-color-222
+    }
+
+    .product-container {
+        @apply flex flex-col p-5 mt-2 md:flex-row lg:flex-row md:mx-[8rem] lg:mx-[30rem] lg:mt-10
+    }
+
+    .product-image > img {
+        @apply h-[550px] md:lg:h-[700px]
+    }
+
+    .product-details {
+        @apply flex flex-col md:w-[50%] lg:w-[50%] z-0
+    }
+
+    .product-details__name {
+        @apply text-3xl mt-4
+    }
+
+    .product-details__price {
+        @apply text-xl mt-4 font-bold
+    }
+
+    .product-details__description {
+        @apply text-lg mt-4 text-font-color-888 md:text-base lg:text-sm
+    }
+
+    .product-details-sizes {
+        @apply mt-[2rem] md:mt-2
+    }
+
+    .product-details-sizes__label {
+        @apply flex flex-row justify-start
+        text-[1.2rem] md:lg:text-sm tracking-tight mt-4 text-font-color-888 uppercase font-bold
+    }
+
+    .product-details-sizes__input-required {
+        @apply text-star-color
+    }
+
+    .product-details-sizes__input-selected {
+        @apply font-bold text-font-color-222 pl-2
+    }
+
+    .product-details-sizes-buttons {
+        @apply flex flex-row mt-2
+    }
+
+    .product-details-sizes-buttons__select {
+        @apply p-3 mx-2 ml-0 min-w-[3.5rem] h-[3.5rem] border border-border-light-gray text-font-color-888 text-base
+    }
+
+    .product-details-add-to-cart-div {
+        @apply flex justify-center py-2 px-3  w-[13rem] mt-4
+        border-2 text-font-color-222 border-border-dark-gray outline-border-dark-gray
+        hover:bg-border-dark-gray hover:text-border-light-gray
+    }
+
+    .product-details-add-to-cart-btn {
+        @apply  uppercase font-bold tracking-widest
+    }
+
+    .size-selected  {
+        @apply border-border-dark-gray text-border-dark-gray
+    }
+
+    .cart-dropdown {
+        @apply z-[2] absolute w-[17rem] top-[2.719rem] border border-border-light-gray px-3 py-2  bg-white
+    }
+
+    .cart-dropdown-list {
+        @apply flex flex-col h-[25rem] overflow-x-auto mt-2
+    }
+
+    .cart-dropdown-item {
+        @apply flex flex-row p-2
+    }
+    .cart-dropdown-img  {
+        @apply w-[40%]
+    }
+    .cart-dropdown-img > img {
+        @apply h-[120px] w-[75px]
+    }
+    .cart-dropdown-item--details {
+        @apply p-2 flex flex-col justify-start w-[75%]
+    }
+    .cart-dropdown-item-details__name {
+        @apply text-base font-medium mb-2
+    }
+    .cart-dropdown-item-details__count {
+        @apply text-base mt-4
+    }
+    .cart-dropdown-item-details__size {
+        @apply text-sm mt-4
+    }
+    .cart-dropdown-item__details > span {
+        @apply p-1
+    }
+
+}
