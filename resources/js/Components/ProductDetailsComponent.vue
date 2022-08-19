@@ -1,21 +1,18 @@
 <template>
     <div class="product-details">
-        <h1 class="product-details__name">Classic Tee</h1>
-        <h3 class="product-details__price">$75.00</h3>
-        <p class="product-details__description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        </p>
+        <h1 class="product-details__name" v-text="title"></h1>
+        <h3 class="product-details__price" >$ <span v-text="parseFloat(price).toFixed(2)"></span></h3>
+        <p class="product-details__description" v-text="description"></p>
 
         <div class="product-details-sizes">
             <span class="product-details-sizes__label">
                 Size
                 <span class="product-details-sizes__input-required">*</span>
-                <span class="product-details-sizes__input-selected">S</span>
+                <span class="product-details-sizes__input-selected hidden">S</span>
             </span>
             <div class="product-details-sizes-buttons">
-                <button class="product-details-sizes-buttons__select">S</button>
-                <button class="product-details-sizes-buttons__select size-selected">M</button>
-                <button class="product-details-sizes-buttons__select">L</button>
+                <button class="product-details-sizes-buttons__select" v-for="size in sizeOptions" :key="size.id" v-text="size.label">S</button>
+
             </div>
         </div>
 
@@ -27,6 +24,19 @@
 
 <script>
 export default {
+    props: {
+       price: {
+           type: Number
+       },
+       sizeOptions: {
+       },
+       description: {
+           type: String
+       },
+       title: {
+           type: String
+       },
+    },
     name: "ProductDetailsComponent"
 }
 </script>

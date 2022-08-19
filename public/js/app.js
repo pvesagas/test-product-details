@@ -5421,10 +5421,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    price: {
+      type: Number
+    },
+    sizeOptions: {},
+    description: {
+      type: String
+    },
+    title: {
+      type: String
+    }
+  },
   name: "ProductDetailsComponent"
 });
 
@@ -5441,16 +5450,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _img_classic_tee_jpg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../img/classic-tee.jpg */ "./resources/img/classic-tee.jpg");
-/* harmony import */ var _img_classic_tee_jpg__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_img_classic_tee_jpg__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    img: String
+  },
   name: "ProductImageComponent"
 });
 
@@ -5501,6 +5510,34 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     ProductDetailsComponent: _Components_ProductDetailsComponent__WEBPACK_IMPORTED_MODULE_1__["default"],
     ProductImageComponent: _Components_ProductImageComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      img: '',
+      sizeOptions: [],
+      title: '',
+      price: 0,
+      description: ''
+    };
+  },
+  methods: {
+    getProduct: function getProduct() {
+      var _this = this;
+
+      axios.get('https://3sb655pz3a.execute-api.ap-southeast-2.amazonaws.com/live/product').then(function (oResponse) {
+        _this.title = oResponse.data.title;
+        _this.sizeOptions = oResponse.data.sizeOptions;
+        _this.price = oResponse.data.price;
+        _this.description = oResponse.data.description;
+        _this.img = oResponse.data.imageURL;
+        console.log(_this.img);
+      })["catch"](function (oError) {
+        console.log(oError);
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getProduct();
   }
 });
 
@@ -5562,7 +5599,6 @@ try {
 
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
@@ -10808,16 +10844,6 @@ defineJQueryPlugin(Toast);
 
 //# sourceMappingURL=bootstrap.esm.js.map
 
-
-/***/ }),
-
-/***/ "./resources/img/classic-tee.jpg":
-/*!***************************************!*\
-  !*** ./resources/img/classic-tee.jpg ***!
-  \***************************************/
-/***/ ((module) => {
-
-module.exports = "/images/classic-tee.jpg?efc04b0f6dd7569f3068dffbfee4127e";
 
 /***/ }),
 
@@ -28886,66 +28912,73 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "product-details" }, [
+    _c("h1", {
+      staticClass: "product-details__name",
+      domProps: { textContent: _vm._s(_vm.title) },
+    }),
+    _vm._v(" "),
+    _c("h3", { staticClass: "product-details__price" }, [
+      _vm._v("$ "),
+      _c("span", {
+        domProps: { textContent: _vm._s(parseFloat(_vm.price).toFixed(2)) },
+      }),
+    ]),
+    _vm._v(" "),
+    _c("p", {
+      staticClass: "product-details__description",
+      domProps: { textContent: _vm._s(_vm.description) },
+    }),
+    _vm._v(" "),
+    _c("div", { staticClass: "product-details-sizes" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "product-details-sizes-buttons" },
+        _vm._l(_vm.sizeOptions, function (size) {
+          return _c(
+            "button",
+            {
+              key: size.id,
+              staticClass: "product-details-sizes-buttons__select",
+              domProps: { textContent: _vm._s(size.label) },
+            },
+            [_vm._v("S")]
+          )
+        }),
+        0
+      ),
+    ]),
+    _vm._v(" "),
+    _vm._m(1),
+  ])
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "product-details" }, [
-      _c("h1", { staticClass: "product-details__name" }, [
-        _vm._v("Classic Tee"),
+    return _c("span", { staticClass: "product-details-sizes__label" }, [
+      _vm._v("\n            Size\n            "),
+      _c("span", { staticClass: "product-details-sizes__input-required" }, [
+        _vm._v("*"),
       ]),
       _vm._v(" "),
-      _c("h3", { staticClass: "product-details__price" }, [_vm._v("$75.00")]),
-      _vm._v(" "),
-      _c("p", { staticClass: "product-details__description" }, [
-        _vm._v(
-          "\n        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n    "
-        ),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "product-details-sizes" }, [
-        _c("span", { staticClass: "product-details-sizes__label" }, [
-          _vm._v("\n            Size\n            "),
-          _c("span", { staticClass: "product-details-sizes__input-required" }, [
-            _vm._v("*"),
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "product-details-sizes__input-selected" }, [
-            _vm._v("S"),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "product-details-sizes-buttons" }, [
-          _c(
-            "button",
-            { staticClass: "product-details-sizes-buttons__select" },
-            [_vm._v("S")]
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass:
-                "product-details-sizes-buttons__select size-selected",
-            },
-            [_vm._v("M")]
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            { staticClass: "product-details-sizes-buttons__select" },
-            [_vm._v("L")]
-          ),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "product-details-add-to-cart-div" }, [
-        _c("button", { staticClass: "product-details-add-to-cart-btn" }, [
-          _vm._v("Add to cart"),
-        ]),
+      _c(
+        "span",
+        { staticClass: "product-details-sizes__input-selected hidden" },
+        [_vm._v("S")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "product-details-add-to-cart-div" }, [
+      _c("button", { staticClass: "product-details-add-to-cart-btn" }, [
+        _vm._v("Add to cart"),
       ]),
     ])
   },
@@ -28972,23 +29005,11 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "product-image" }, [
+    _c("img", { attrs: { id: "img", src: _vm.img, alt: "" } }),
+  ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "product-image" }, [
-      _c("img", {
-        attrs: {
-          src: "https://mrdevelopertestassets.s3.ap-southeast-2.amazonaws.com/classic-tee.jpg",
-          alt: "",
-        },
-      }),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -29043,7 +29064,18 @@ var render = function () {
   return _c(
     "div",
     { staticClass: "product-container" },
-    [_c("ProductImageComponent"), _vm._v(" "), _c("ProductDetailsComponent")],
+    [
+      _c("ProductImageComponent", { attrs: { img: _vm.img } }),
+      _vm._v(" "),
+      _c("ProductDetailsComponent", {
+        attrs: {
+          title: _vm.title,
+          "size-options": _vm.sizeOptions,
+          price: _vm.price,
+          description: _vm.description,
+        },
+      }),
+    ],
     1
   )
 }
@@ -41130,18 +41162,6 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 				}
 /******/ 			}
 /******/ 			return result;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
 /******/ 		};
 /******/ 	})();
 /******/ 	

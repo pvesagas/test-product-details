@@ -1,13 +1,17 @@
 <template>
     <div class="product-image">
-        <img src="https://mrdevelopertestassets.s3.ap-southeast-2.amazonaws.com/classic-tee.jpg" alt="">
+        <img id="img" v-bind:src="img" alt="">
     </div>
 </template>
 
 <script>
-import Img from '../../img/classic-tee.jpg'
+
 export default {
-    name: "ProductImageComponent"
+    props: {
+        img: String
+    },
+    name: "ProductImageComponent",
+
 }
 </script>
 
