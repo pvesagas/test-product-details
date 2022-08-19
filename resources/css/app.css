@@ -10,10 +10,10 @@
     .custom-navbar {
         @apply flex flex-row-reverse flex-wrap
         bg-header-bg-color my-4 md:mx-[4rem] lg:mx-[16rem] p-2 pr-[2.5rem] md:pr-[3rem] lg:pr-[10rem] font-medium
-        text-[0.8rem]
+        text-[0.8rem] h-[2.4rem]
     }
     .custom-navbar-cart-div {
-        @apply flex flex-row text-sm items-center cursor-pointer z-[3] border border-b  border-b-white border-border-light-gray bg-white
+        @apply flex flex-row text-sm items-center cursor-pointer z-[3] text-font-color-888
     }
 
     .custom-navbar-cart-div > span {
@@ -32,8 +32,11 @@
         @apply tracking-[0.3rem]
     }
 
-    .custom-navbar-cart-div-bag__unclicked {
+    .custom-navbar-cart-div__unclicked {
         @apply text-font-color-888
+    }
+    .custom-navbar-cart-div__clicked {
+        @apply border border-b border-b-white border-border-light-gray bg-white text-font-color-222
     }
 
     .product-container {

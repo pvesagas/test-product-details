@@ -5314,52 +5314,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    toggleState: {
+      type: Boolean
+    }
+  },
   name: "CartComponent"
 });
 
@@ -5411,6 +5371,15 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     toggleDropdown: function toggleDropdown(bState) {
       this.showDropdown = !bState;
+
+      if (this.showDropdown === true) {
+        document.querySelector('.custom-navbar-cart-div').classList.remove('custom-navbar-cart-div__unclicked');
+        document.querySelector('.custom-navbar-cart-div').classList.add('custom-navbar-cart-div__clicked');
+        return;
+      }
+
+      document.querySelector('.custom-navbar-cart-div').classList.remove('custom-navbar-cart-div__clicked');
+      document.querySelector('.custom-navbar-cart-div').classList.add('custom-navbar-cart-div__unclicked');
     }
   }
 });
@@ -28719,107 +28688,101 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _vm.toggleState === true
+    ? _c("div", { staticClass: "cart-dropdown" }, [_vm._m(0)])
+    : _vm._e()
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "cart-dropdown" }, [
-      _c("div", { staticClass: "cart-dropdown-list h-[300px]" }, [
-        _c("div", { staticClass: "cart-dropdown-item" }, [
-          _c("div", { staticClass: "cart-dropdown-img" }, [
-            _c("img", {
-              attrs: {
-                src: "https://mrdevelopertestassets.s3.ap-southeast-2.amazonaws.com/classic-tee.jpg",
-                alt: "",
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("div", { staticClass: "cart-dropdown-item-details" }, [
-              _c("h5", { staticClass: "cart-dropdown-item-details__name" }, [
-                _vm._v("Card title"),
+    return _c("div", { staticClass: "cart-dropdown-list h-[300px]" }, [
+      _c("div", { staticClass: "cart-dropdown-item" }, [
+        _c("div", { staticClass: "cart-dropdown-img" }, [
+          _c("img", {
+            attrs: {
+              src: "https://mrdevelopertestassets.s3.ap-southeast-2.amazonaws.com/classic-tee.jpg",
+              alt: "",
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("div", { staticClass: "cart-dropdown-item-details" }, [
+            _c("h5", { staticClass: "cart-dropdown-item-details__name" }, [
+              _vm._v("Card title"),
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "cart-dropdown-item-details__count" }, [
+              _vm._v("3x "),
+              _c("span", { staticClass: "cart-dropdown-item-details__price" }, [
+                _vm._v("$75.00"),
               ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "cart-dropdown-item-details__count" }, [
-                _vm._v("3x "),
-                _c(
-                  "span",
-                  { staticClass: "cart-dropdown-item-details__price" },
-                  [_vm._v("$75.00")]
-                ),
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "cart-dropdown-item-details__size" }, [
-                _vm._v("Size: S"),
-              ]),
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "cart-dropdown-item-details__size" }, [
+              _vm._v("Size: S"),
             ]),
           ]),
         ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "cart-dropdown-item" }, [
+        _c("div", { staticClass: "cart-dropdown-img" }, [
+          _c("img", {
+            attrs: {
+              src: "https://mrdevelopertestassets.s3.ap-southeast-2.amazonaws.com/classic-tee.jpg",
+              alt: "",
+            },
+          }),
+        ]),
         _vm._v(" "),
-        _c("div", { staticClass: "cart-dropdown-item" }, [
-          _c("div", { staticClass: "cart-dropdown-img" }, [
-            _c("img", {
-              attrs: {
-                src: "https://mrdevelopertestassets.s3.ap-southeast-2.amazonaws.com/classic-tee.jpg",
-                alt: "",
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("div", { staticClass: "cart-dropdown-item-details" }, [
-              _c("h5", { staticClass: "cart-dropdown-item-details__name" }, [
-                _vm._v("Card title"),
+        _c("div", [
+          _c("div", { staticClass: "cart-dropdown-item-details" }, [
+            _c("h5", { staticClass: "cart-dropdown-item-details__name" }, [
+              _vm._v("Card title"),
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "cart-dropdown-item-details__count" }, [
+              _vm._v("3x "),
+              _c("span", { staticClass: "cart-dropdown-item-details__price" }, [
+                _vm._v("$75.00"),
               ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "cart-dropdown-item-details__count" }, [
-                _vm._v("3x "),
-                _c(
-                  "span",
-                  { staticClass: "cart-dropdown-item-details__price" },
-                  [_vm._v("$75.00")]
-                ),
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "cart-dropdown-item-details__size" }, [
-                _vm._v("Size: S"),
-              ]),
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "cart-dropdown-item-details__size" }, [
+              _vm._v("Size: S"),
             ]),
           ]),
         ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "cart-dropdown-item" }, [
+        _c("div", { staticClass: "cart-dropdown-img" }, [
+          _c("img", {
+            attrs: {
+              src: "https://mrdevelopertestassets.s3.ap-southeast-2.amazonaws.com/classic-tee.jpg",
+              alt: "",
+            },
+          }),
+        ]),
         _vm._v(" "),
-        _c("div", { staticClass: "cart-dropdown-item" }, [
-          _c("div", { staticClass: "cart-dropdown-img" }, [
-            _c("img", {
-              attrs: {
-                src: "https://mrdevelopertestassets.s3.ap-southeast-2.amazonaws.com/classic-tee.jpg",
-                alt: "",
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("div", { staticClass: "cart-dropdown-item-details" }, [
-              _c("h5", { staticClass: "cart-dropdown-item-details__name" }, [
-                _vm._v("Card title"),
+        _c("div", [
+          _c("div", { staticClass: "cart-dropdown-item-details" }, [
+            _c("h5", { staticClass: "cart-dropdown-item-details__name" }, [
+              _vm._v("Card title"),
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "cart-dropdown-item-details__count" }, [
+              _vm._v("3x "),
+              _c("span", { staticClass: "cart-dropdown-item-details__price" }, [
+                _vm._v("$75.00"),
               ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "cart-dropdown-item-details__count" }, [
-                _vm._v("3x "),
-                _c(
-                  "span",
-                  { staticClass: "cart-dropdown-item-details__price" },
-                  [_vm._v("$75.00")]
-                ),
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "cart-dropdown-item-details__size" }, [
-                _vm._v("Size: S"),
-              ]),
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "cart-dropdown-item-details__size" }, [
+              _vm._v("Size: S"),
             ]),
           ]),
         ]),
@@ -28858,6 +28821,11 @@ var render = function () {
         {
           staticClass:
             "custom-navbar-cart-div custom-navbar-cart-div-bag__unclicked",
+          on: {
+            click: function ($event) {
+              return _vm.toggleDropdown(_vm.showDropdown)
+            },
+          },
         },
         [
           _c("span", { staticClass: "custom-navbar-cart-main-button" }, [
@@ -28890,7 +28858,7 @@ var render = function () {
         ]
       ),
       _vm._v(" "),
-      _c("CartComponent"),
+      _c("CartComponent", { attrs: { "toggle-state": _vm.showDropdown } }),
     ],
     1
   )

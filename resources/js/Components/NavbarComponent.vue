@@ -1,6 +1,6 @@
 <template>
     <nav class="custom-navbar">
-        <div class="custom-navbar-cart-div custom-navbar-cart-div-bag__unclicked">
+        <div class="custom-navbar-cart-div custom-navbar-cart-div-bag__unclicked" @click="toggleDropdown(showDropdown)">
             <span class="custom-navbar-cart-main-button">My Cart</span>
             <span class="custom-navbar-cart-sub-button">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
@@ -14,7 +14,7 @@
             </span>
         </div>
 
-        <CartComponent />
+        <CartComponent :toggle-state="showDropdown" />
     </nav>
 </template>
 
@@ -33,6 +33,13 @@ export default {
     methods: {
         toggleDropdown(bState) {
             this.showDropdown = !bState;
+            if (this.showDropdown === true) {
+                document.querySelector('.custom-navbar-cart-div').classList.remove('custom-navbar-cart-div__unclicked');
+                document.querySelector('.custom-navbar-cart-div').classList.add('custom-navbar-cart-div__clicked');
+                return
+            }
+            document.querySelector('.custom-navbar-cart-div').classList.remove('custom-navbar-cart-div__clicked');
+            document.querySelector('.custom-navbar-cart-div').classList.add('custom-navbar-cart-div__unclicked');
         },
     }
 }
