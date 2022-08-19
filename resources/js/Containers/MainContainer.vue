@@ -1,13 +1,20 @@
 <script>
 import NavbarComponent from "../Components/NavbarComponent";
+import ProductContainer from "./ProductContainer";
 export default {
     name: "MainContainer",
-    components: {NavbarComponent}
+    components: {
+        NavbarComponent,
+        ProductContainer
+    }
 }
 </script>
 
 <template>
-    <NavbarComponent/>
+    <div>
+        <NavbarComponent/>
+        <ProductContainer/>
+    </div>
 </template>
 
 <style scoped>

@@ -9,7 +9,7 @@
 @layer components {
     .custom-navbar {
         @apply flex flex-row-reverse flex-wrap
-        bg-header-bg-color my-4 md:mx-[8rem] lg:mx-[16rem] p-2 pr-[2.5rem] md:pr-[5rem] lg:pr-[10rem] font-medium
+        bg-header-bg-color my-4 md:mx-[4rem] lg:mx-[16rem] p-2 pr-[2.5rem] md:pr-[3rem] lg:pr-[10rem] font-medium
         text-[0.8rem]
     }
     .custom-navbar-cart-div {
@@ -33,7 +33,70 @@
     }
 
     .custom-navbar-cart-div-bag__unclicked {
-        @apply  text-font-color-888
+        @apply text-font-color-888
+    }
+
+    .product-container {
+        @apply flex flex-col p-5 mt-2 md:flex-row lg:flex-row md:mx-[8rem] lg:mx-[30rem] lg:mt-10
+    }
+
+    .product-image > img {
+        @apply h-[550px] md:lg:h-[700px]
+    }
+
+    .product-details {
+        @apply flex flex-col md:w-[50%] lg:w-[50%]
+    }
+
+    .product-details__name {
+        @apply text-3xl mt-4
+    }
+
+    .product-details__price {
+        @apply text-xl mt-4 font-bold
+    }
+
+    .product-details__description {
+        @apply text-lg mt-4 text-font-color-888 md:text-base lg:text-sm
+    }
+
+    .product-details-sizes {
+        @apply mt-[2rem] md:mt-2
+    }
+
+    .product-details-sizes__label {
+        @apply flex flex-row justify-start
+        text-[1.2rem] md:lg:text-sm tracking-tight mt-4 text-font-color-888 uppercase font-bold
+    }
+
+    .product-details-sizes__input-required {
+        @apply text-star-color
+    }
+
+    .product-details-sizes__input-selected {
+        @apply font-bold text-font-color-222 pl-2
+    }
+
+    .product-details-sizes-buttons {
+        @apply flex flex-row mt-2
+    }
+
+    .product-details-sizes-buttons__select {
+        @apply p-3 mx-2 ml-0 min-w-[3.5rem] h-[3.5rem] border-2 border-border-light-gray text-font-color-888 text-base
+    }
+
+    .product-details-add-to-cart-div {
+        @apply flex justify-center py-2 px-3  w-[13rem] mt-4
+        border-2 text-font-color-222 border-border-dark-gray outline-border-dark-gray
+        hover:bg-border-dark-gray hover:text-border-light-gray
+    }
+
+    .product-details-add-to-cart-btn {
+        @apply  uppercase font-bold tracking-widest
+    }
+
+    .size-selected  {
+        @apply border-border-dark-gray text-border-dark-gray
     }
 
 }
