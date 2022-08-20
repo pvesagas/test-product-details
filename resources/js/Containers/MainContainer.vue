@@ -7,13 +7,23 @@ export default {
     components: {
         NavbarComponent,
         ProductContainer
+    },
+    data() {
+        return {
+            reloadCartTrigger: false,
+        }
+    },
+    methods: {
+        refetchCart() {
+            this.reloadCartTrigger = new Date().valueOf();
+        }
     }
 }
 </script>
 
 <template>
     <div>
-        <NavbarComponent/>
-        <ProductContainer/>
+        <NavbarComponent :key="reloadCartTrigger"/>
+        <ProductContainer @addToCart="refetchCart"/>
     </div>
 </template>

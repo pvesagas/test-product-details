@@ -1,33 +1,56 @@
 <script>
+const CART_CLICKED_CLASS = 'custom-navbar-cart-div__clicked';
+const CART_UNCLICK_CLASS = 'custom-navbar-cart-div__unclick';
+const CART_CLASS_SElECTOR = '.custom-navbar-cart-div';
+
 import CartComponent from "./CartComponent";
 export default {
+    props: {
+        reloadCart: Boolean
+    },
     name: "NavbarComponent",
     components: {
         CartComponent
     },
     data() {
         return {
-            showDropdown: false
+            showDropdown: false,
+            cart: {},
+            itemCount: 0
         }
     },
     methods: {
         toggleDropdown(bState) {
             this.showDropdown = !bState;
-            if (this.showDropdown === true) {
-                document.querySelector('.custom-navbar-cart-div').classList.remove('custom-navbar-cart-div__unclicked');
-                document.querySelector('.custom-navbar-cart-div').classList.add('custom-navbar-cart-div__clicked');
-                return;
-            }
-
-            document.querySelector('.custom-navbar-cart-div').classList.remove('custom-navbar-cart-div__clicked');
-            document.querySelector('.custom-navbar-cart-div').classList.add('custom-navbar-cart-div__unclicked');
+            this.showDropdown ? this.addClickedClass() : this.removeClickedClass()
         },
+        removeClickedClass() {
+            document.querySelector(CART_CLASS_SElECTOR).classList.remove(CART_CLICKED_CLASS);
+            document.querySelector(CART_CLASS_SElECTOR).classList.add(CART_UNCLICK_CLASS);
+        },
+        addClickedClass() {
+            document.querySelector(CART_CLASS_SElECTOR).classList.remove(CART_UNCLICK_CLASS);
+            document.querySelector(CART_CLASS_SElECTOR).classList.add(CART_CLICKED_CLASS);
+        },
+        fetchCart() {
+            axios.get('/cart')
+                .then(oResponse => {
+                    this.cart = oResponse.data.data
+                    this.itemCount = Object.keys(this.cart).length;
+                })
+                .catch(oError => {
+                    console.log(oError);
+                });
+        }
+    },
+    mounted() {
+        this.fetchCart();
     }
 }
 </script>
 <template>
     <nav class="custom-navbar">
-        <div class="custom-navbar-cart-div custom-navbar-cart-div-bag__unclicked" @click="toggleDropdown(showDropdown)">
+        <div class="custom-navbar-cart-div custom-navbar-cart-div-bag__unclick" @click="toggleDropdown(showDropdown)">
             <span class="custom-navbar-cart-main-button">My Cart</span>
             <span class="custom-navbar-cart-sub-button">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
@@ -36,11 +59,10 @@ export default {
                     </path>
                </svg>
             </span>
-            <span class="custom-navbar-cart-bag ">
-                (1)
+            <span class="custom-navbar-cart-bag" v-text="'(' + (itemCount) + ')'">
             </span>
         </div>
 
-        <CartComponent :toggle-state="showDropdown" />
+        <CartComponent :toggle-state="showDropdown" :cart="cart"/>
     </nav>
 </template>

@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/refresh', function () {
+    \Illuminate\Support\Facades\Session::flush();
+});
+
+Route::get('/cart', function () {
+    return Response::json(['data' => session()->get('cart')]);
+});
+
+Route::post('/add', [\App\Http\Controllers\Controller::class, 'addToCart']);

@@ -8,10 +8,9 @@ module.exports = {
   ],
   theme: {
     colors: {
-        'border-dark-gray': '#222222',
+        'dark-gray': '#222222',
         'border-light-gray': '#CCCCCC',
-        'font-color-222': '#222222',
-        'font-color-888': '#888888',
+        'color-888': '#888888',
         'star-color': '#C90000',
         'header-bg-color': '#F6F6F7',
         'white': '#FFFFFF'

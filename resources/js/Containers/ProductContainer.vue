@@ -14,6 +14,7 @@ export default {
            sizeOptions: [],
            title: '',
            price: 0,
+           id: 0,
            description: '',
        }
     },
@@ -26,28 +27,32 @@ export default {
                    this.price = oResponse.data.price;
                    this.description = oResponse.data.description;
                    this.img = oResponse.data.imageURL;
-                   console.log(this.img);
+                   this.id = oResponse.data.id;
                 })
                 .catch(oError => {
                     console.log(oError);
                 });
+        },
+        triggerParent() {
+            this.$emit('addToCart');
         }
     },
     mounted() {
         this.getProduct();
     }
-
 }
 </script>
 
 <template>
     <div class="product-container">
         <ProductImageComponent :img="img"/>
-        <ProductDetailsComponent
+        <ProductDetailsComponent @addToCart="triggerParent"
+            :id="id"
             :title="title"
             :size-options="sizeOptions"
             :price="price"
             :description="description"
+            :img="img"
         />
     </div>
 </template>

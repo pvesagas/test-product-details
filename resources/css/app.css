@@ -30,7 +30,7 @@
         @apply tracking-[0.3rem]
     }
 
-    .custom-navbar-cart-div__unclicked {
+    .custom-navbar-cart-div__unclick {
         @apply text-color-888
     }
     .custom-navbar-cart-div__clicked {
@@ -83,7 +83,8 @@
     }
 
     .product-details-sizes-buttons__select {
-        @apply p-3 mx-2 ml-0 min-w-[3.5rem] h-[3.5rem] border border-border-light-gray text-color-888 text-base
+        @apply p-3 mr-2 ml-0 min-w-[3.5rem] h-[3.5rem] border border-border-light-gray text-color-888 text-base
+        hover:bg-dark-gray hover:text-border-light-gray duration-[0.2s]
     }
 
     .product-details-add-to-cart-div {
@@ -132,11 +133,19 @@
         @apply text-base mt-4
     }
 
+    .cart-dropdown-item-details__price {
+        @apply text-base
+    }
+
     .cart-dropdown-item-details__size {
         @apply text-sm mt-4
     }
     .cart-dropdown-item__details > span {
         @apply p-1
+    }
+
+    .buttons__select--checked {
+        @apply border-dark-gray
     }
 
 }
