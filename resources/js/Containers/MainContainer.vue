@@ -14,7 +14,7 @@ export default {
         }
     },
     methods: {
-        refetchCart() {
+        fetchCart() {
             this.reloadCartTrigger = new Date().valueOf();
         }
     }
@@ -24,6 +24,6 @@ export default {
 <template>
     <div>
         <NavbarComponent :key="reloadCartTrigger"/>
-        <ProductContainer @addToCart="refetchCart"/>
+        <ProductContainer @addToCart="fetchCart"/>
     </div>
 </template>

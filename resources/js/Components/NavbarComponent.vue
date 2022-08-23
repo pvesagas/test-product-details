@@ -4,9 +4,6 @@ const CART_CLASS_SELECTOR = '.custom-navbar-cart-div';
 
 import CartDropdownComponent from "./CartDropdownComponent";
 export default {
-    props: {
-        reloadCart: Boolean
-    },
     name: "NavbarComponent",
     components: {
         CartDropdownComponent
@@ -15,7 +12,8 @@ export default {
         return {
             showDropdown: false,
             cart: {},
-            itemCount: 0
+            itemCount: 0,
+            bItemCountLoading: true,
         }
     },
     methods: {
@@ -34,9 +32,10 @@ export default {
                 .then(oResponse => {
                     this.cart = oResponse.data.data
                     this.itemCount = Object.keys(this.cart).length;
+                    this.bItemCountLoading = false;
                 })
                 .catch(oError => {
-                    console.log(oError);
+                    this.bItemCountLoading = false;
                 });
         }
     },
@@ -56,7 +55,7 @@ export default {
                     </path>
                </svg>
             </span>
-            <span class="custom-navbar-cart-bag" v-text="'(' + (itemCount) + ')'">
+            <span class="custom-navbar-cart-bag" :class="[bItemCountLoading ? 'loading' : '']" v-text=" bItemCountLoading ? '' : '(' + (itemCount) + ')'">
             </span>
         </div>
 

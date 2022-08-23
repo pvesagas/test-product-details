@@ -36,6 +36,9 @@
     .custom-navbar-cart-bag {
         @apply tracking-[0.3rem]
     }
+    .custom-navbar-cart-bag.loading {
+        @apply w-[2rem] h-[1rem] ml-1
+    }
 
     .custom-navbar-cart-div__clicked {
         @apply border border-b border-b-white border-border-light-gray bg-white text-dark-gray

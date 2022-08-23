@@ -40,7 +40,7 @@ export default {
             }
         },
         removeSelectedSize() {
-           document.querySelector('.product-details-sizes__input-selected').textContent = '';
+            this.size = '';
         },
         addToCart() {
             if (this.size === '') {
@@ -49,16 +49,17 @@ export default {
             }
 
             const oData = {
-                id: this.id,
-                price: this.price,
+                id: this.product.id,
+                price: this.product.price,
                 size: this.size,
-                description: this.description,
-                title: this.title,
-                img: this.img,
+                description: this.product.description,
+                title: this.product.title,
+                img: this.product.img,
             }
 
             axios.post('/add', oData)
                 .then((oResponse) => {
+                    alert(this.product.title + ' is added to cart');
                     this.$emit('addToCart', (new Date().valueOf()));
                     this.removeActiveButton();
                     this.removeSelectedSize();

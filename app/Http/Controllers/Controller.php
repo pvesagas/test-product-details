@@ -24,22 +24,19 @@ class Controller extends BaseController
             session()->put('cart', []);
             $aData[$sSize] = $oRequest->input();
             $aData[$sSize]['count'] = 1;
-            return $this->updateCart($sSize, $aData);
+            return $this->updateCart($aData);
         }
 
 
         $aData[$sSize]['count'] = $aData[$sSize]['count'] + 1;
-        return $this->updateCart($sSize, $aData);
+        return $this->updateCart($aData);
     }
 
-    private function updateCart( string $sSize, array $aProductData): JsonResponse
+    private function updateCart(array $aProductData): JsonResponse
     {
         Session::put('cart', $aProductData);
         return Response::json([
-            'result' => true,
-            Session::get($sSize)
+            'result' => true
         ]);
     }
-
-
 }
