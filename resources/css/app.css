@@ -14,7 +14,7 @@
 
     .custom-navbar {
         @apply flex flex-row-reverse flex-wrap
-        bg-header-bg-color my-4 md:mx-[4rem] lg:mx-[16rem] p-2 pr-[2.5rem] md:pr-[3rem] lg:pr-[10rem] font-medium
+        bg-header-bg-color my-4 md:mx-[4rem] lg:mx-[16rem] p-2 pr-[2.5rem] md:pr-[3rem] font-medium py-0
         text-[0.8rem] h-[2.4rem]
     }
     .custom-navbar-cart-div {
@@ -133,7 +133,7 @@
     }
 
     .cart-dropdown {
-        @apply z-[2] absolute w-[17rem] top-[2.719rem] border border-border-light-gray px-3 py-2  bg-white
+        @apply z-[2] absolute w-[17rem] top-[3.3rem] border border-border-light-gray px-3 py-2  bg-white
     }
 
     .cart-dropdown-list {
