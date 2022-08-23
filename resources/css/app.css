@@ -50,12 +50,12 @@
     }
 
 
-    .product-image .loading {
+    .product-image.loading {
         @apply w-[100%]  h-[550px] md:lg:h-[700px] bg-slate-200 animate-pulse rounded-2xl
     }
 
     .product-details {
-        @apply flex flex-col md:w-[50%] lg:w-[50%] z-0 md:lg:ml-[10rem]
+        @apply flex flex-col md:w-[50%] lg:w-[50%] z-0 md:ml-[2rem] lg:ml-[10rem]
     }
 
     .product-details-name {
