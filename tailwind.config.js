@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const colors = require("tailwindcss/colors");
 module.exports = {
   content: [
       './storage/framework/views/*.php',
@@ -15,7 +16,9 @@ module.exports = {
         'header-bg-color': '#F6F6F7',
         'white': '#FFFFFF'
     },
-    extend: {},
+    extend: {
+        colors: colors
+    },
   },
   plugins: [],
 }

@@ -1,4 +1,4 @@
-require('./bootstrap');
+window.axios = require('axios');
 window.Vue = require('vue').default;
 Vue.component('main-component', require('./Containers/MainContainer.vue').default);
 

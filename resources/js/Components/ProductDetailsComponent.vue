@@ -5,12 +5,14 @@ const BUTTON_CHECKED_CLASS_SELECTOR = '.buttons__select--checked';
 export default {
     name: "ProductDetailsComponent",
     props: {
-        id: Number,
-        price: Number,
-        sizeOptions: {},
-        description: String,
-        title: String,
-        img: String,
+        product: {
+            id: Number,
+            price: Number,
+            sizeOptions: {},
+            description: String,
+            title: String,
+            img: String,
+        }
     },
     data() {
         return {
@@ -18,6 +20,13 @@ export default {
         }
     },
     methods: {
+        applyLoadingClass() {
+            return {
+                'productImage' : this.product.img === '' ? 'product-image--loading' : '',
+                'productTitle' : this.product.title === '' ? 'product-details-name--loading' : '',
+                'productPrice' : this.product.price === '' ? 'product-details-price--loading' : '',
+            }
+        },
         selectSize(selectedSize, oEvent) {
             this.size = selectedSize;
             this.removeActiveButton();
@@ -63,26 +72,54 @@ export default {
 </script>
 
 <template>
-    <div class="product-details">
-        <h1 class="product-details__name" v-text="title"></h1>
-        <h3 class="product-details__price" >$ <span v-text="parseFloat(price.toString()).toFixed(2)"></span></h3>
-        <p class="product-details__description" v-text="description"></p>
+    <div class="product-container">
+        <div class="product-image" :class="[product.img === '' ? 'loading' : '']">
+            <img v-if="product.img !== ''" id="img" v-bind:src="product.img" alt="">
+        </div>
+        <div class="product-details">
+            <h1 class="product-details-name"
+                :class="[product.title === '' ? 'loading' : '']"
+                v-text="product.title"
+            >
+            </h1>
 
-        <div class="product-details-sizes">
-            <span class="product-details-sizes__label">
-                Size
-                <span class="product-details-sizes__input-required">*</span>
-                <span class="product-details-sizes__input-selected" v-text="size"></span>
-            </span>
-            <div class="product-details-sizes-buttons">
-                <button class="product-details-sizes-buttons__select"
-                        v-for="size in sizeOptions" :key="size.id" v-text="size.label" @click="selectSize(size.label, $event)">
-                </button>
+            <div class="product-details-price" :class="[product.price === 0 ? 'loading' : '']">
+                <span v-if="product.price !== 0" v-text="'$ ' + parseFloat(product.price.toString()).toFixed(2)"></span>
+            </div>
+
+            <p class="product-details-description" v-if="product.description !== ''" v-text="product.description"></p>
+            <div v-else class="product-details-description--loading">
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+            </div>
+
+            <div class="product-details-sizes">
+                <span class="product-details-sizes__label">
+                    Size
+                    <span class="product-details-sizes__input-required">*</span>
+                    <span class="product-details-sizes__input-selected" v-text="size"></span>
+                </span>
+                <div class="product-details-sizes-buttons"  v-if="Object.keys(product.sizeOptions).length !== 0">
+                    <button class="product-details-sizes-buttons-select"
+                            v-for="size in product.sizeOptions" :key="size.id" v-text="size.label" @click="selectSize(size.label, $event)">
+                    </button>
+                </div>
+                <div v-else>
+                    <button class="product-details-sizes-buttons-select loading"></button>
+                    <button class="product-details-sizes-buttons-select loading"></button>
+                    <button class="product-details-sizes-buttons-select loading"></button>
+                </div>
+            </div>
+
+            <div class="product-details-add-to-cart-div" @click="addToCart">
+                <button class="product-details-add-to-cart-btn" >Add to cart</button>
             </div>
         </div>
-
-        <div class="product-details-add-to-cart-div" @click="addToCart">
-            <button class="product-details-add-to-cart-btn" >Add to cart</button>
-        </div>
     </div>
+
 </template>

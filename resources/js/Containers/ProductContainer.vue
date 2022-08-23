@@ -1,33 +1,33 @@
 <script>
-import ProductImageComponent from "../Components/ProductImageComponent";
 import ProductDetailsComponent from "../Components/ProductDetailsComponent";
 
 export default {
     name: "ProductContainer",
     components: {
-        ProductDetailsComponent,
-        ProductImageComponent
+        ProductDetailsComponent
     },
     data() {
        return {
-           img: '',
-           sizeOptions: [],
-           title: '',
-           price: 0,
-           id: 0,
-           description: '',
+           product: {
+               img: '',
+               sizeOptions: [],
+               title: '',
+               price: 0,
+               id: 0,
+               description: '',
+           }
        }
     },
     methods: {
-        getProduct() {
-            axios.get('https://3sb655pz3a.execute-api.ap-southeast-2.amazonaws.com/live/product')
+        async getProduct() {
+            await axios.get('https://3sb655pz3a.execute-api.ap-southeast-2.amazonaws.com/live/product')
                 .then(oResponse => {
-                   this.title = oResponse.data.title;
-                   this.sizeOptions = oResponse.data.sizeOptions;
-                   this.price = oResponse.data.price;
-                   this.description = oResponse.data.description;
-                   this.img = oResponse.data.imageURL;
-                   this.id = oResponse.data.id;
+                   this.product.title = oResponse.data.title;
+                   this.product.sizeOptions = oResponse.data.sizeOptions;
+                   this.product.price = oResponse.data.price;
+                   this.product.description = oResponse.data.description;
+                   this.product.img = oResponse.data.imageURL;
+                   this.product.id = oResponse.data.id;
                 })
                 .catch(oError => {
                     console.log(oError);
@@ -44,15 +44,9 @@ export default {
 </script>
 
 <template>
-    <div class="product-container">
-        <ProductImageComponent :img="img"/>
+    <div>
         <ProductDetailsComponent @addToCart="triggerParent"
-            :id="id"
-            :title="title"
-            :size-options="sizeOptions"
-            :price="price"
-            :description="description"
-            :img="img"
+            :product="product"
         />
     </div>
 </template>

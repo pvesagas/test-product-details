@@ -1,16 +1,15 @@
 <script>
 const CART_CLICKED_CLASS = 'custom-navbar-cart-div__clicked';
-const CART_UNCLICK_CLASS = 'custom-navbar-cart-div__unclick';
-const CART_CLASS_SElECTOR = '.custom-navbar-cart-div';
+const CART_CLASS_SELECTOR = '.custom-navbar-cart-div';
 
-import CartComponent from "./CartComponent";
+import CartDropdownComponent from "./CartDropdownComponent";
 export default {
     props: {
         reloadCart: Boolean
     },
     name: "NavbarComponent",
     components: {
-        CartComponent
+        CartDropdownComponent
     },
     data() {
         return {
@@ -25,15 +24,13 @@ export default {
             this.showDropdown ? this.addClickedClass() : this.removeClickedClass()
         },
         removeClickedClass() {
-            document.querySelector(CART_CLASS_SElECTOR).classList.remove(CART_CLICKED_CLASS);
-            document.querySelector(CART_CLASS_SElECTOR).classList.add(CART_UNCLICK_CLASS);
+            document.querySelector(CART_CLASS_SELECTOR).classList.remove(CART_CLICKED_CLASS);
         },
         addClickedClass() {
-            document.querySelector(CART_CLASS_SElECTOR).classList.remove(CART_UNCLICK_CLASS);
-            document.querySelector(CART_CLASS_SElECTOR).classList.add(CART_CLICKED_CLASS);
+            document.querySelector(CART_CLASS_SELECTOR).classList.add(CART_CLICKED_CLASS);
         },
-        fetchCart() {
-            axios.get('/cart')
+        async fetchCart() {
+            await axios.get('/cart')
                 .then(oResponse => {
                     this.cart = oResponse.data.data
                     this.itemCount = Object.keys(this.cart).length;
@@ -50,7 +47,7 @@ export default {
 </script>
 <template>
     <nav class="custom-navbar">
-        <div class="custom-navbar-cart-div custom-navbar-cart-div-bag__unclick" @click="toggleDropdown(showDropdown)">
+        <div class="custom-navbar-cart-div" @click="toggleDropdown(showDropdown)">
             <span class="custom-navbar-cart-main-button">My Cart</span>
             <span class="custom-navbar-cart-sub-button">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
@@ -63,6 +60,6 @@ export default {
             </span>
         </div>
 
-        <CartComponent :toggle-state="showDropdown" :cart="cart"/>
+        <CartDropdownComponent :toggle-state="showDropdown" :cart="cart"/>
     </nav>
 </template>

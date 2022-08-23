@@ -1,7 +1,7 @@
 
 <script>
 export default {
-    name: "CartComponent",
+    name: "CartDropdownComponent",
     props: {
         toggleState: Boolean,
         cart: {}
